@@ -1,9 +1,17 @@
 from __future__ import print_function
+import random
 
-word = "dinosaur"
+word_list = []
 correct_guessed = []
 wrong_guessed = []
 guesses_left = 6
+file = open('word_list.txt', 'r')
+
+for line in file:
+    line = line.rstrip( )
+    word_list.append(line)
+
+word = random.choice(word_list)
 
 print ("There are", len(word), "letters in the word.")
 
@@ -29,7 +37,7 @@ while guesses_left > 0 and len(correct_guessed) != len(word):
     else:
         guesses_left -= 1
         wrong_guessed.append(guess_letter)
-        print ("There are no", guess_letter + "s. You have", guesses_left, "more guesses.")
+        print ("There are no", "'" + guess_letter + "'s. You have", guesses_left, "more guesses.")
         print (wrong_guessed)
 
 if len(word) == len(correct_guessed):
