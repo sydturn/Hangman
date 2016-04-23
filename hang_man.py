@@ -20,18 +20,18 @@ while True:
     print (word)
     while guesses_left > 0 and len(correct_guessed) != len(word):
         for letter in word:
-            if letter in correct_guessed:
+            if letter.lower() in correct_guessed:
                 print (letter, end=" ")
             else:
                 print ("_", end=" ")
         print ()
 
-        guess_letter = str(raw_input("Guess a letter: "))
+        guess_letter = str(raw_input("Guess a letter: ").lower())
         if len(guess_letter) != 1:
             print ("Invalid input, please try again.")
         elif guess_letter in correct_guessed or guess_letter in wrong_guessed:
             print ("You already guessed that, try again.")
-        elif guess_letter in word:
+        elif guess_letter in word.lower():
             occurance = word.count(guess_letter)
             correct_guessed += occurance * [guess_letter]
             left_over = len(word) - len(correct_guessed)

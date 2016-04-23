@@ -9,7 +9,6 @@ green
 blue
 teacher
 school
-university
 piglet
 avocado
 armadillo
